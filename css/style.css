@@ -97,27 +97,36 @@ ul {
 .nav_link:hover, .nav_link:focus {
     color: var(--button-color);
 }
-.nav_link::after {
+.current {
+    position: relative;
+    color: #2196F3;
+}
+.current::after {
     content: '';
     position: absolute;
-    left: 50%;
-    margin-top: 28px;
-    transform: translateX(-50%) scaleX(0.3);
+    left: 0;
+    bottom: -32px;
     display: block;
     width: 106%;
     height: 4px;
     border-radius: 2px;
     background-color: #2196F3;
-    opacity: 0;
     transition-property: transform, opacity;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0ms;
 }
-.nav_link:hover::after,
-.nav_link:focus::after {
-    transform: translateX(-50%) scaleX(1);
-    opacity: 1;
+.link_prtfl:visited::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-top: 28px;
+    transform: translateX(-50%) scaleX(0.3);
+  
+    width: 106%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #2196F3;
 }
 .header_tel {
     font-weight: 500;
@@ -292,6 +301,41 @@ ul {
     letter-spacing: 0.03em;
     color: var(--hero-catalogue);
 }
+.hero_work_thumb {
+    position: relative;
+    overflow: hidden;
+}
+.overlay_studio_text {
+    position: absolute;
+    left: 0%;
+    top: 224px;
+    transform: translateY(100%);
+    width: 370px;
+    height: 70px;
+    background-color: rgb(47, 48, 58, 0.8);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: calc(16/14);
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    user-select: none;
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0ms;
+}
+
+.list_hero_work_picture:hover .overlay_studio_text {
+    transform: translateY(0);
+}
 
 /*--------Section Team--------------*/
 .container_about_team {
@@ -374,6 +418,11 @@ ul {
     letter-spacing: 0.03em;
     color: var(--main-title-color);
     text-decoration: none;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0ms;
+
 }
 .footer_header_mail {
     font-style: normal;
@@ -434,10 +483,7 @@ ul {
     align-items: center;
     cursor: pointer;
     border-color: none;
-    transition-property: color, background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0ms;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn_prtfl:hover, .btn_prtfl:focus {
     background: var(--button-color);
@@ -449,6 +495,7 @@ ul {
 }
 .link_btn_prtfl {
     text-decoration: none; 
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .container_work_card:hover, .container_work_card:focus {
     display: block;
@@ -472,19 +519,24 @@ ul {
     display: flex;
     align-items: center;
     color: var(--main-title-color);
-
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: calc(28/18);
+    letter-spacing: 0.03em;
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0ms;
 
 }
-
 .container_work:hover .overlay_prtfl {
     transform: translateY(0);
 }
 .container_work_card {
     text-decoration: none; 
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .essential {
     padding-top: 94px;
@@ -593,10 +645,7 @@ ul {
     height: 44px;
     border-radius: 50%; 
     background-color: #FFFFFF;
-    transition-property: color, background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0ms;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /*a ФОН */
 .social_link:focus,  .socials_icon:focus {fill: #FFFFFF;
@@ -631,10 +680,7 @@ ul {
     justify-content: center;
     align-items: center;
     display: flex;
-    transition-property: color, background-color;
-    transition-duration: 250ms, 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-delay: 0ms;
+    transition:fill 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon_features {
     display: flex;
@@ -713,7 +759,6 @@ ul {
     color: #FFFFFF;
     display: flex;
     margin-bottom: 20px;
-
 }
 .container_socials {
     display:inline-flex;
@@ -735,7 +780,7 @@ ul {
     height: 44px;
     border-radius: 50%; 
     background-color: rgba(255,255,255,0.1);
-    transition-property: color, background-color;
+    transition-property: fill, background-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0ms;
@@ -761,7 +806,7 @@ ul {
 }
 .container_team_name {
     background-color: #FFFFFF;
-    transition-property: color, background-color;
+    transition-property: box-shadow;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0ms;
@@ -798,7 +843,7 @@ html {
     height: 100%;
     background-color: rgba(25, 28, 38, 0.4);
     z-index: 100;
-    transition: opacity 250ms  cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms  ;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1) linear;
 }
 .backdrop.is-hidden {
     opacity: 0;
